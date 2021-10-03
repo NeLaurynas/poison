@@ -70,12 +70,10 @@ defmodule Poison do
       iex> Poison.decode!("[1,2,3]")
       [1, 2, 3]
   """
-  @spec decode!(iodata) :: Parser.t() | no_return
   def decode!(value) do
     Parser.parse!(value, %{})
   end
 
-  @spec decode!(iodata, Decoder.options()) :: Decoder.t() | no_return
   def decode!(value, options) when is_list(options) do
     decode!(value, Map.new(options))
   end
